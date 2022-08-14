@@ -1,0 +1,222 @@
+.container{
+  margin-left: 20%;
+  margin-top: 20px;
+}
+.holder {
+    position: relative;
+}
+.dropdown {
+    position: absolute;
+    border: 1px solid #ddd;
+    display: block;
+    width: 472px;
+}
+
+input:focus + .dropdown {
+    display: block;
+}
+.navbar-brand{
+   border: 1px solid #ccc;
+   padding-left: 0px;
+
+}
+
+.br-right0{border-right: 0px !important;}
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  margin-top: 10px;
+  margin: 10px 20px 0px 20px;
+  border-radius: 2px;
+
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  outline: none;
+  cursor: pointer;
+  padding: 7px 32px;
+  transition: 0.3s;
+
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.radiostyle{
+   margin-left: 20px;
+   margin-top: 10px;
+}
+
+.form-check{
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.rounded{
+  border-radius: 10px !important;
+}
+
+.inputw {
+  width: 140px !important;
+}
+.btncenter{
+    margin-left: 20px;
+    width: -webkit-fill-available;
+    margin-right: 20px;
+    
+}
+.applybuttom{
+  border-bottom: 1px solid #ddd;
+padding-bottom: 20px;
+padding-top: 20px;
+}
+
+.asofdate{
+  margin-left: 20px;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: bold;
+
+}
+
+#apply2{
+    width: 300px;
+    display: inline-block;
+    font-weight: 500;
+    color: #fff;
+    background-color: #5BC0DE;
+    border-color: #5BC0DE;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+}
+#apply1{
+    display: inline-block;
+    font-weight: 500;
+    color: #fff;
+    background-color: #5BC0DE;
+    border-color: #5BC0DE;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+}
+
+.react-datepicker-popper[data-placement=top] {
+   padding-bottom:0px; 
+}
+
+.mid-content{
+  background-color: #fff;
+  height: 29px;
+  border: 1px solid #eee;
+  min-width: 302px;
+}
+
+    input[type=text] {
+      width: 50%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+    }
+
+.texttop{
+  font-size: 13px;
+  font-weight: bold;
+  color: #ccc;
+
+}
+
+.dialog-box {
+  display: flex;  
+  align-items: center;
+  width: 31%;
+  height: 32px;  
+}
+.dialog-box__search {
+  min-width: 3%;
+  width: 20%;
+  display: block;
+  color: #ff0000;
+  text-align: center;
+  content: "\2277";
+}
+.dialog-box__content {
+   text-align:center;
+   width: 75%;
+}
+
+.outerDiv{
+  height: 30px;
+  line-height: 28px;;
+
+}
+.leftdiv{
+  height: 100%;  
+  font-size: 30px;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  width: 1%;
+  background-color: #e4e4e4;
+  float: left;
+  padding: 0px 5px 0px 5px;
+  text-align: center;
+  color: #01a4ef;
+  border-top-left-radius: 10px;
+
+}
+.rightdiv{
+  height: 100%;
+  font-size: 30px;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  width: 1%;
+  background-color:#e4e4e4;
+  float: left;
+  padding: 0px 5px 0px 5px;
+  text-align: center;
+  color:#01a4ef;
+  border-top-right-radius: 10px;
+
+}
+
+.div-mid-content{
+  height: 100%;
+  border: 1px solid #ddd;
+  width: 300px;
+  float: left;
+  padding: 0px 3px 0px 3px;
+  text-align: center;
+  
+}
+
+
