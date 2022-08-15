@@ -11,14 +11,16 @@ function Task() {
   let date = new Date();
   var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
   var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-  let showDateRange = moment(firstDay).format('ddd, MMM-Do YYYY')+" , "+ moment(lastDay).format('ddd, MMM-Do YYYY')
+  let showDateRange = moment(firstDay).format('ddd, MMM DD,YYYY')+" - "+ moment(lastDay).format('ddd, MMM DD,YYYY')
 
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date(new Date().setDate(new Date().getDate() - 1)));
   const [dtRange,setDtRange] = useState(showDateRange);
   const [sDate,setSDate] = useState(moment(firstDay).format('MM/DD/YYYY'));
   const [eDate,setEDate] = useState(moment(lastDay).format('MM/DD/YYYY'));
   const [showDiv,setShowDiv] = useState(false);   
-  const [getRange,setGetRange] = useState('M');
+
+  const [dateStart,setDateStart] = useState(firstDay);
+  const [dateEnd,setDateEnd] = useState(lastDay);
 
 
   var timeInterval = 'M';
@@ -44,7 +46,9 @@ function Task() {
     lastDay =  moment(lastDay).add(timeInterval,'d').format('MM/DD/YYYY'); 
     setSDate(firstDay);
     setEDate(lastDay);
-    let showDateRange = moment(firstDay).format('ddd, MMM-Do YYYY')+" , "+ moment(lastDay).format('ddd, MMM-Do YYYY')
+    setDateStart(new Date(moment(firstDay).format('MM/DD/YYYY')))
+    setDateEnd(new Date(moment(lastDay).format('MM/DD/YYYY')))
+    let showDateRange = moment(firstDay).format('ddd, MMM DD,YYYY')+" - "+ moment(lastDay).format('ddd, MMM DD,YYYY')
     setDtRange(showDateRange);
   }
 
@@ -71,7 +75,11 @@ function Task() {
     lastDay =  moment(firstDay).add(timeInterval-1,'d').format('MM/DD/YYYY'); 
     setSDate(firstDay);
     setEDate(lastDay);
-    let showDateRange = moment(firstDay).format('ddd, MMM-Do YYYY')+" , "+ moment(lastDay).format('ddd, MMM-Do YYYY')
+    
+    setDateStart(new Date(moment(firstDay).format('MM/DD/YYYY')))
+    setDateEnd(new Date(moment(lastDay).format('MM/DD/YYYY')))
+    
+    let showDateRange = moment(firstDay).format('ddd, MMM DD,YYYY')+" - "+ moment(lastDay).format('ddd, MMM DD,YYYY')
     setDtRange(showDateRange);
   }
   
@@ -86,43 +94,63 @@ function Task() {
         lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);        
       }else if(checkedValue === '30'){
         timeInterval = 30
-        firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+        firstDay = new Date();
         firstDay = moment(firstDay).format('MM/DD/YYYY')
         lastDay =  moment(firstDay).add(timeInterval,'d').format('MM/DD/YYYY'); 
       }else if(checkedValue === '60'){
         timeInterval = 60
-        firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+        firstDay = new Date();
         firstDay = moment(firstDay).format('MM/DD/YYYY')
         lastDay =  moment(firstDay).add(timeInterval,'d').format('MM/DD/YYYY'); 
       }else if(checkedValue === '90'){
         timeInterval = 90
-        firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+        firstDay = new Date();
         firstDay = moment(firstDay).format('MM/DD/YYYY')
         lastDay =  moment(firstDay).add(timeInterval,'d').format('MM/DD/YYYY'); 
       }else{
-        //const date1 = new Date(firstDay);
-        //const date2 = new Date(lastDay);
-        //const diffInMs = Math.abs(date2 - date1);
-        //timeInterval =  diffInMs / (1000 * 60 * 60 * 24); 
-        firstDay = moment(firstDay).format('MM/DD/YYYY')
-        lastDay =  moment(lastDay).format('MM/DD/YYYY')
+       /* const date1 = new Date(dateStart);
+        const date2 = new Date(dateEnd);
+        const diffInMs = Math.abs(date2 - date1);
+        timeInterval =  diffInMs / (1000 * 60 * 60 * 24); */
+
+        firstDay = moment(dateStart).format('MM/DD/YYYY')
+        lastDay =  moment(dateEnd).format('MM/DD/YYYY');
       } 
 
-      
+      //const my_date = new Date(moment(firstDay).format('MM/DD/YYYY'));
+      setDateStart(new Date(moment(firstDay).format('MM/DD/YYYY')))
+      setDateEnd(new Date(moment(lastDay).format('MM/DD/YYYY')))
+
       setSDate(moment(firstDay).format('MM/DD/YYYY'));
       setEDate(moment(lastDay).format('MM/DD/YYYY'));
 
       
-        let showDateRange = moment(firstDay).format('ddd, MMM-Do YYYY')+" , "+ moment(lastDay).format('ddd, MMM-Do YYYY')
+        let showDateRange = moment(firstDay).format('ddd, MMM DD,YYYY')+" - "+ moment(lastDay).format('ddd, MMM DD,YYYY')
         setDtRange(showDateRange);
 
   }
 
-  
-  //const changeAsOfDate = (val) => {
-    //setStartDate(moment(val).format('MM/DD/YYYY'))
-  //console.log(val+" => "+moment(val).format('MM/DD/YYYY'));
-  //}
+   
+  const changeStartDate = (val) => {        
+    document.getElementById("radio5").checked = true;
+    setDateStart(new Date(moment(val).format('MM/DD/YYYY')))       
+    firstDay = moment(val).format('MM/DD/YYYY')
+    lastDay =  moment(dateEnd).format('MM/DD/YYYY');
+    let showDateRange = moment(firstDay).format('ddd, MMM DD,YYYY')+" - "+ moment(lastDay).format('ddd, MMM DD,YYYY')
+    setDtRange(showDateRange);
+    setSDate(moment(firstDay).format('MM/DD/YYYY'));
+      setEDate(moment(lastDay).format('MM/DD/YYYY'));
+  }
+  const changeEndDate = (val) => {    
+    document.getElementById("radio5").checked = true;
+    firstDay = moment(dateStart).format('MM/DD/YYYY')
+    lastDay =  moment(val).format('MM/DD/YYYY');
+    setDateEnd(new Date(moment(val).format('MM/DD/YYYY')))  
+    let showDateRange = moment(firstDay).format('ddd, MMM DD,YYYY')+" - "+ moment(lastDay).format('ddd, MMM DD,YYYY')
+    setDtRange(showDateRange); 
+    setSDate(moment(firstDay).format('MM/DD/YYYY'));
+      setEDate(moment(lastDay).format('MM/DD/YYYY'));
+  }
 
   return (
     <div className='container'>
@@ -147,11 +175,10 @@ function Task() {
             <button className="tablinks active">Range</button>
             <button className="tablinks">Weekly</button>
             <button className="tablinks br-right0">Monthly</button>
-          </div>
-
-          <div className='radiostyle'>
+          </div> 
+          <div className='radiostyle'>          
             <div className="form-check">
-              <input type="radio" className="form-check-input" id="radio1" name="optradio" value="M" onChange={handleSelect} />
+              <input type="radio" className="form-check-input" id="radio1" name="optradio" value="M" onChange={handleSelect} defaultChecked />
               <label className="form-check-label" for="radio1">Currect Month</label>
             </div>
             <div className="form-check"> 
@@ -173,10 +200,20 @@ function Task() {
           </div>
 
           <div className='date-input'>
-          <input type="text" id="sDate" name='sDate' value={sDate} style={{ width: '140px', margin: '20px' }} />
+            <input type="hidden" id="sDate" name='sDate' value={sDate} style={{ width: '140px', margin: '20px' }} />            
+            <input type="hidden" id="eDate" name="eDate" value={eDate} style={{ width: '140px', margin: '10px' }} />
+             
+            <ReactDatePicker selected={dateStart}
+                placeholderText="Start Date"
+                onChange={changeStartDate}
+                dateFormat='MM/dd/yyyy' className="dateStartClass" style={{ width: '140px', margin: '10px' }}  />
 
-            
-            <input type="text" id="eDate" name="eDate" value={eDate} style={{ width: '140px', margin: '10px' }} />
+            <ReactDatePicker selected={dateEnd}
+                placeholderText="End Date"
+                onChange={changeEndDate}
+                dateFormat='MM/dd/yyyy' minDate={dateStart} style={{ width: '140px', margin: '10px' }} />   
+
+
           </div>
 
           <div className='applybuttom text-center'>
@@ -190,7 +227,6 @@ function Task() {
                 placeholderText="Start Date"
                 onChange={(date)=>setStartDate(date)}
                 dateFormat='MM/dd/yyyy'style={{ width: '140px', margin: '10px' }} />
-
             </div>
           </div>
           <div className='applybuttom text-center'>
