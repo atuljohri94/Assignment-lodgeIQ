@@ -9,7 +9,7 @@
     position: absolute;
     border: 1px solid #ddd;
     display: block;
-    width: 472px;
+    width: 459px;
 }
 
 input:focus + .dropdown {
@@ -27,7 +27,7 @@ input:focus + .dropdown {
   border: 1px solid #ccc;
   background-color: #fff;
   margin-top: 10px;
-  margin: 10px 20px 0px 20px;
+  margin: 10px 28px 0px 8px;
   border-radius: 2px;
 
 }
@@ -102,7 +102,7 @@ padding-top: 20px;
 }
 
 #apply2{
-    width: 300px;
+    
     display: inline-block;
     font-weight: 500;
     color: #fff;
@@ -192,7 +192,7 @@ padding-top: 20px;
   text-align: center;
   color: #01a4ef;
   border-top-left-radius: 10px;
-
+  cursor: pointer;
 }
 .rightdiv{
   height: 100%;
@@ -206,6 +206,7 @@ padding-top: 20px;
   text-align: center;
   color:#01a4ef;
   border-top-right-radius: 10px;
+  cursor: pointer;
 
 }
 
@@ -229,4 +230,55 @@ padding-top: 20px;
 .react-datepicker__input-container{
   width: 323px !important;
     float: left !important;
+}
+
+.fromdiv{
+  float: left;
+}
+
+.todiv{
+  float: left;
+}
+.showTab{
+  display: block;
+}
+
+.hideTab{
+  display: none;
+}
+
+.week-container{
+  padding-top: 10px !important;
+}
+
+.week-container .react-datepicker{
+  width: 100% !important;
+}
+
+.week-container .react-datepicker .react-datepicker__month-container{
+  width: 100% !important;
+}
+
+.week-container .react-datepicker .react-datepicker__day-name{
+  width: 3.7rem !important;
+}
+
+.week-container .react-datepicker .react-datepicker__day .react-datepicker__day--031 .react-datepicker__day--weekend .react-datepicker__day--outside-month
+{
+  width: 3.7rem !important;
+}
+
+.week-container .react-datepicker .react-datepicker__day{
+  width: 3.7rem !important;
+}
+.react-datepicker__month-text{
+  width: 9rem !important;
+  margin-top: 20px !important;
+  font-size: 20px !important;
+}
+.react-datepicker__quarter-text{
+  width: 9.4rem !important;
+}
+.month-container{
+  padding-top: 10px !important;
 }
