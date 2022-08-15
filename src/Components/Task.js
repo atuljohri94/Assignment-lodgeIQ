@@ -206,7 +206,7 @@ function Task() {
             <ReactDatePicker selected={dateStart}
                 placeholderText="Start Date"
                 onChange={changeStartDate}
-                dateFormat='MM/dd/yyyy' className="dateStartClass" style={{ width: '140px', margin: '10px' }}  />
+                dateFormat='MM/dd/yyyy' maxDate={dateEnd} className="dateStartClass" style={{ width: '140px', margin: '10px' }}  />
 
             <ReactDatePicker selected={dateEnd}
                 placeholderText="End Date"
