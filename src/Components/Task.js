@@ -155,7 +155,9 @@ function Task() {
   const [weekstartdate, setweekstartsate] = useState(new Date());
   const [weekenddate, setweekenddate] = useState(null);
   const weekonchange = (dates) => {
-    let [firstDay, lastDay] = dates;
+    firstDay = new Date(moment(dates).weekday(0).format('MM/DD/YYYY'));
+    lastDay = new Date(moment(dates).weekday(6).format('MM/DD/YYYY'));
+    //let [firstDay, lastDay] = dates;
     setweekstartsate(firstDay);
     setweekenddate(lastDay);
     console.log(firstDay, lastDay);
@@ -270,8 +272,7 @@ function Task() {
                 selected={weekstartdate}
                 onChange={weekonchange}
                 startDate={weekstartdate}
-                endDate={weekenddate}
-                selectsRange
+                endDate={weekenddate} 
                 inline
               />
             </div>
